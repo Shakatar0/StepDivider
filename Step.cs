@@ -8,8 +8,8 @@ namespace SD
 {
     public class Step
     {
-        int _first;
-        int _second;
+        private int _first;
+        private int _second;
 
         public int First
         {

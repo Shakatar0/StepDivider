@@ -15,7 +15,7 @@ namespace SD
         private int _number;
         private int _divider;
 
-        private int initSteps(int reste)
+        private int initSteps(int reste, bool steprest)
         {
             if (reste == 0)
             {
@@ -24,19 +24,28 @@ namespace SD
             }
             else
             {
-                _steps = new Step[_divider + 1];
-                return 2;
+                if (steprest)
+                {
+                    _steps = new Step[_divider + 1];
+                    return 2;
+                }
+                else
+                {
+                    _steps = new Step[_divider];
+                    return 1;
+                }
+
             }
         }
 
-        public StepDivider(int number, int divider)
+        public StepDivider(int number, int divider, bool steprest)
         {
             _number = number;
             _divider = divider;
 
             int divided = number / divider;
             int reste = number % divider;
-            int add = initSteps(reste);
+            int add = initSteps(reste, steprest);
 
             for (int x = 1; x < divider + add; x++)
             {
@@ -49,9 +58,14 @@ namespace SD
                     second_number = divided * x;
                 }
 
-                if (x == divider + 1) //Check for last iter
+                if (x == divider + 1) //Check for last iter when there is steprest and rest
                 {
                     second_number = first_number + reste;
+                }
+
+                if (x == divider && !steprest)
+                {
+                    second_number = number;
                 }
 
                 _steps[x - 1] = new Step(first_number, second_number);
