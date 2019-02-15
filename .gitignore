@@ -1,3 +1,6 @@
-bin/
-obj/
-.vs/
+Example/bin/
+Example/obj/
+Example/.vs/
+Library/bin/
+Library/obj/
+Library/.vs/
