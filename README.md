@@ -3,8 +3,8 @@
 Class library which can "step" into a number
 
 # Example  
+13/3  
 ### steprest : true
-13/3  =  
   
 0 TO 3  
 3 TO 6  
@@ -12,8 +12,7 @@ Class library which can "step" into a number
 9 TO 12  
 12 TO 13  
 
-### steprest : false  
-13/3  =  
+### steprest : false   
   
 0 TO 3  
 3 TO 6  
